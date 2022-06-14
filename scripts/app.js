@@ -101,7 +101,19 @@ btnPlay.addEventListener('click', function() {
                 setTimeout(function() {
                     if (choixParCoup[0] == choixParCoup[1]){
                        // Le joueur a trouvé une paire
-                       alert('lol')
+                       // Select the divs which contains the same emoji as this one
+
+
+                      let divs = document.querySelectorAll('.emoji');
+                      console.log(divs)
+                        divs.forEach(function(div) {
+                            if (div.innerHTML == choixParCoup[0]) {
+                                
+                                div.parentElement.classList.add('found');
+                            }
+                        })
+
+                       
                         
                     }
                    

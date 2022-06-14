@@ -119,6 +119,11 @@ h1 {
       background-image: url('../assets/potato-6.png');
   }
 
+  .found {
+    background-size: 100%;
+      background-image: url('../assets/check.png')!important;
+  }
+
   #secondTitle {
       position: relative;
       top: 400px;
