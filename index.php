@@ -11,7 +11,7 @@
 
 <div id="game">
 <div id="secondTitle">The first RPG Memory Game </div>
-    <div id="title" class="noselect"><h1>MÉMOMMO</h1></div>
+    <div id="title" class="noselect"><h1>MeMOMMO</h1></div>
     
     <div id="buttonPlay" align="center">
     <button class="btn" id="play">
