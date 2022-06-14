@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+
 <div id="game">
-    
+<div id="secondTitle">The first RPG Memory Game </div>
     <div id="title" class="noselect"><h1>MÉMOMMO</h1></div>
     
     <div id="buttonPlay" align="center">

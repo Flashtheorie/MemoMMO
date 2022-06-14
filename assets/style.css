@@ -15,7 +15,7 @@ body {
 #title {
     margin: 0.5em 0;
   font-family: "JetBrainsMono", sans-serif;
-  font-size: 8.5em;
+  font-size: 6.5em;
   color: #22313F ;
   text-align: center;
   text-transform: uppercase;
@@ -26,7 +26,10 @@ body {
 
 
 /* button */
-
+/* hover sur .btn */
+.btn:hover {
+    background-color: #000000;
+    color: #fafafa;}
   .btn {
     /* center the button */
     
@@ -115,3 +118,15 @@ h1 {
     background-size: 100%;
       background-image: url('../assets/potato-6.png');
   }
+
+  #secondTitle {
+      position: relative;
+      top: 400px;
+    font-family: "JetBrainsMono", sans-serif;
+    font-size: 2em;
+    color: #22313F ;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    text-shadow: -0.05em 0 0 #F22613,  0.05em 0 0 #00FFFF;
+    }
