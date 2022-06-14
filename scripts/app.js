@@ -4,7 +4,7 @@ game = document.querySelector('#game');
 gameboard = document.querySelector('#gameboard');
 table = document.querySelector('#table')
 gameboard.style.display = 'none';
-let coups = 0;
+let nbCoups = 0;
 
 
 btnPlay.addEventListener('click', function() {
@@ -80,23 +80,39 @@ btnPlay.addEventListener('click', function() {
 
     tiles = document.querySelectorAll('th');
         //console.table(tiles)
+    let choixParCoup = [];
 
         // Modification du background-image de chaque tile
         tiles.forEach(function(tile) {
             tile.addEventListener('click', function() {
                 tile.classList.remove('turned');
+
+                
+                choixParCoup.push(tile.children[0].innerHTML);
+               
                 tile.children[0].style.display = 'block';
-                coups++;
-                if (coups == 2)
+                nbCoups++;
+                console.log(choixParCoup)
+                if (nbCoups == 2)
             {
+                
+                
+
                 setTimeout(function() {
+                    if (choixParCoup[0] == choixParCoup[1]){
+                       // Le joueur a trouvé une paire
+                       alert('lol')
+                        
+                    }
+                   
+                    choixParCoup = [];
                     let emojis = document.querySelectorAll('.emoji');
                     emojis.forEach(function(emoji){
-                        console.log(emoji)
+                        //console.log(emoji)
                         emoji.parentElement.classList.add('turned');
                         emoji.style.display = 'none';
                     })
-                    coups = 0;
+                    nbCoups = 0;
                 }, 1000)
             }
             });
