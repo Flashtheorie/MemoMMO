@@ -4,10 +4,11 @@ game = document.querySelector('#game');
 gameboard = document.querySelector('#gameboard');
 table = document.querySelector('#table')
 gameboard.style.display = 'none';
-
+let coups = 0;
 
 
 btnPlay.addEventListener('click', function() {
+    
     game.innerHTML = ''; // clear the game container
     table.innerHTML = ''; // clear the table container
     gameboard.style.display = 'block';
@@ -45,6 +46,7 @@ btnPlay.addEventListener('click', function() {
     for (let i = 0; i < 4; i++) {
         let card = document.createElement('th');
         let div = document.createElement('div');
+        div.setAttribute('class', 'emoji')
         tr.append(card);
         card.append(div);
         
@@ -82,8 +84,21 @@ btnPlay.addEventListener('click', function() {
         // Modification du background-image de chaque tile
         tiles.forEach(function(tile) {
             tile.addEventListener('click', function() {
-                tile.style.backgroundImage = 'none';
+                tile.classList.remove('turned');
                 tile.children[0].style.display = 'block';
+                coups++;
+                if (coups == 2)
+            {
+                setTimeout(function() {
+                    let emojis = document.querySelectorAll('.emoji');
+                    emojis.forEach(function(emoji){
+                        console.log(emoji)
+                        emoji.parentElement.classList.add('turned');
+                        emoji.style.display = 'none';
+                    })
+                    coups = 0;
+                }, 1000)
+            }
             });
             
         }
