@@ -1,0 +1,73 @@
+@font-face{
+    font-family: 'JetBrainsMono';
+    src: url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2') format('woff2'),
+      url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Regular.woff') format('woff'),
+      url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/ttf/JetBrainsMono-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+body {
+    background-color: #fafafa;
+    
+}
+
+#title {
+    margin: 0.5em 0;
+  font-family: "JetBrainsMono", sans-serif;
+  font-size: 8.5em;
+  color: #22313F ;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-shadow: -0.05em 0 0 #F22613,  0.05em 0 0 #00FFFF;
+}
+
+#buttonPlay {
+    margin:auto;
+    font-family: "JetBrainsMono", sans-serif;
+    font-size: 1.5em;
+    background-color: #22313F ;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    text-shadow: -0.5em 0 0 #F22613,  0.5em 0 0 #00FFFF;
+    width: 300px;
+    height: 150px;
+} 
+
+/* button */
+.pushable {
+    background: hsl(340deg 100% 32%);
+    border-radius: 12px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+  }
+  .front {
+    /* center the button */
+    position: absolute;
+    text-align: center;
+    display: block;
+    padding: 24px 84px;
+    border-radius: 12px;
+    font-size: 2rem;
+    background: #22313F;
+    color: white;
+   
+    text-shadow: -0.02em 0 0 #F22613,  0.02em 0 0 #00FFFF;
+  }
+
+  .pushable:active .front {
+    transform: translateY(-2px);
+    
+  }
+
+
+  #buttonPlay {
+      height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
