@@ -8,15 +8,16 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    <div id="title"><h1>MemoMMO</h1></div>
+
+    <div id="title" class="noselect"><h1>MemoMMO</h1></div>
     
 
 <div id="buttonPlay" align="center">
-    <button class="pushable">
+    <button class="btn">
  
-  <span class="front">
+  
    PLAY
-  </span>
+  
  
 </button>
 </div>
