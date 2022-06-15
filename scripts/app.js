@@ -1,205 +1,151 @@
-
-btnPlay = document.querySelector('#play');
-game = document.querySelector('#game');
-gameboard = document.querySelector('#gameboard');
-table = document.querySelector('#table')
-gameboard.style.display = 'none';
+btnPlay = document.querySelector("#play");
+game = document.querySelector("#game");
+gameboard = document.querySelector("#gameboard");
+table = document.querySelector("#table");
+gameboard.style.display = "none";
 let nbCoups = 0;
 let nbPoints = 0;
 
-btnPlay.addEventListener('click', function() {
-launchTimer();
+btnPlay.addEventListener("click", function () {
+  launchTimer();
 
+  game.innerHTML = ""; // clear the game container
+  table.innerHTML = ""; // clear the table container
+  gameboard.style.display = "block";
+  fruits = [
+    "🍋",
+    "🍋",
+    "🍒",
+    "🍒",
+    "🍌",
+    "🍌",
+    "🍉",
+    "🍉",
+    "🍓",
+    "🍓",
+    "🍐",
+    "🍐",
+    "🍈",
+    "🍈",
+    "🍇",
+    "🍇",
+  ];
 
+  let shuffledArray = fruits.sort((a, b) => 0.5 - Math.random());
+  let indexfruits = 0;
+  tbody = document.createElement("tbody");
+  table.appendChild(tbody);
 
-    game.innerHTML = ''; // clear the game container
-    table.innerHTML = ''; // clear the table container
-    gameboard.style.display = 'block';
-    fruits = [
-        '🍋', 
-        '🍋', 
-        '🍒',
-        '🍒',
-        '🍌',
-        '🍌',
-        '🍉',
-        '🍉',
-        '🍓',
-        '🍓',
-        '🍐',
-        '🍐',
-        '🍈',
-        '🍈',
-        '🍇',
-        '🍇'
-            ];
-
-            
-    let shuffledArray = fruits.sort((a, b) => 0.5 - Math.random());
-    let indexfruits = 0;
-    tbody = document.createElement('tbody');
-    table.appendChild(tbody);
-
-    for (let i = 0; i < 4; i++) {
-
-    tr = document.createElement('tr');
+  for (let i = 0; i < 4; i++) {
+    tr = document.createElement("tr");
     tbody.append(tr);
 
-    
     for (let i = 0; i < 4; i++) {
-        let card = document.createElement('th');
-        let div = document.createElement('div');
-        div.setAttribute('class', 'emoji')
-        tr.append(card);
-        card.append(div);
-        
-        div.innerHTML = shuffledArray[indexfruits];
-        card.classList.add('tiles');
-       // card.classList.add('turned');
-        indexfruits++;
-        
-        setTimeout(function(){
-       
-            tiles = document.querySelectorAll('th');
-            //console.table(tiles)
-    
-            // Modification du background-image de chaque tile
-            tiles.forEach(function(tile) {
-                tile.classList.remove('tiles')
-                div.style.display = "none";
-                tile.classList.add('turned');
-                
-                //tile.innerHTML = ''
-                //tile.style.backgroundImage = `url('assets/potato-6.png')`;
-            }
-            )
-    
-           
-        }, 1000);
-}
+      let card = document.createElement("th");
+      let div = document.createElement("div");
+      div.setAttribute("class", "emoji");
+      tr.append(card);
+      card.append(div);
 
-    }
+      div.innerHTML = shuffledArray[indexfruits];
+      card.classList.add("tiles");
+      // card.classList.add('turned');
+      indexfruits++;
 
-
-    tiles = document.querySelectorAll('th');
+      setTimeout(function () {
+        tiles = document.querySelectorAll("th");
         //console.table(tiles)
-    let choixParCoup = [];
 
         // Modification du background-image de chaque tile
-        tiles.forEach(function(tile) {
-            tile.addEventListener('click', function() {
-                tile.classList.remove('turned');
+        tiles.forEach(function (tile) {
+          tile.classList.remove("tiles");
+          div.style.display = "none";
+          tile.classList.add("turned");
 
-                
-                choixParCoup.push(tile.children[0].innerHTML);
-               
-                tile.children[0].style.display = 'block';
-                nbCoups++;
-                console.log(choixParCoup)
-                if (nbCoups == 2)
-            {
-                
-                
+          //tile.innerHTML = ''
+          //tile.style.backgroundImage = `url('assets/potato-6.png')`;
+        });
+      }, 1000);
+    }
+  }
 
-                setTimeout(function() {
-                    if (choixParCoup[0] == choixParCoup[1]){
-                       // Le joueur a trouvé une paire
-                       // Select the divs which contains the same emoji as this one
-                        nbPoints++;
+  tiles = document.querySelectorAll("th");
+  //console.table(tiles)
+  let choixParCoup = [];
 
-                        console.log(nbPoints)
+  // Modification du background-image de chaque tile
+  tiles.forEach(function (tile) {
+    tile.addEventListener("click", function () {
+      tile.classList.remove("turned");
 
-                        if (nbPoints == 8) {
-                            alert('Vous avez gagné !');
-                        }
+      choixParCoup.push(tile.children[0].innerHTML);
 
-                      let divs = document.querySelectorAll('.emoji');
-                      console.log(divs)
-                        divs.forEach(function(div) {
-                            if (div.innerHTML == choixParCoup[0]) {
-                                
-                                div.parentElement.classList.add('found');
-                            }
-                        })
+      tile.children[0].style.display = "block";
+      nbCoups++;
+      console.log(choixParCoup);
+      if (nbCoups == 2) {
+        setTimeout(function () {
+          if (choixParCoup[0] == choixParCoup[1]) {
+            // Le joueur a trouvé une paire
+            // Select the divs which contains the same emoji as this one
+            nbPoints++;
 
-                       
-                        
-                    }
-                   
-                    choixParCoup = [];
-                    let emojis = document.querySelectorAll('.emoji');
-                    emojis.forEach(function(emoji){
-                        //console.log(emoji)
-                        emoji.parentElement.classList.add('turned');
-                        emoji.style.display = 'none';
-                    })
-                    nbCoups = 0;
-                }, 1000)
+            console.log(nbPoints);
+
+            if (nbPoints == 8) {
+              alert("Vous avez gagné !");
             }
+
+            let divs = document.querySelectorAll(".emoji");
+            console.log(divs);
+            divs.forEach(function (div) {
+              if (div.innerHTML == choixParCoup[0]) {
+                div.parentElement.classList.add("found");
+              }
             });
-            
-        }
-        )
+          }
 
-
-
-
-
-    
-
-
-
-}
-
-
-
-
-
-
-
-
-); // Onclick sur play
-
-
-
-
+          choixParCoup = [];
+          let emojis = document.querySelectorAll(".emoji");
+          emojis.forEach(function (emoji) {
+            //console.log(emoji)
+            emoji.parentElement.classList.add("turned");
+            emoji.style.display = "none";
+          });
+          nbCoups = 0;
+        }, 1000);
+      }
+    });
+  });
+}); // Onclick sur play
 
 // timer
-let zoneTimer = document.querySelector('#timer');
+let zoneTimer = document.querySelector("#timer");
 
 let temps = 46;
 
+function launchTimer() {
+  setInterval(function () {
+    temps--;
+    zoneTimer.innerHTML = temps;
 
+    if (temps == 0) {
+      alert("Vous avez perdu !");
+      document.location.href = "index.php";
+    }
 
-function launchTimer(){
-    setInterval(function(){
-        temps--;
-        zoneTimer.innerHTML = temps;
-    
-    
-    
-        if (temps == 0) {
-            alert('Vous avez perdu !');
-            document.location.href = "index.php";
-        }
-    
-        if (temps == 30) {
-            zoneTimer.style.fontSize = '4em';
-            zoneTimer.style.color = 'orange';
-        }
+    if (temps == 30) {
+      zoneTimer.style.fontSize = "4em";
+      zoneTimer.style.color = "orange";
+    }
 
-    
-        if (temps == 10) {
-            // grow the letter back and forth
-            zoneTimer.style.fontSize = '5em';
+    if (temps == 10) {
+      // grow the letter back and forth
+      zoneTimer.style.fontSize = "5em";
 
-            zoneTimer.style.color = 'red';
-        }
-    }, 1000);
+      zoneTimer.style.color = "red";
+    }
+  }, 1000);
 }
 
 // fin timer
-
-
-
-
