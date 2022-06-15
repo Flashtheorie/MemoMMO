@@ -26,13 +26,16 @@
 
 <h1>0/100 xp</h1>
 <div id="xpbar"></div>
+<table id="table"></table>
 
+
+<div id="timer"></div>
 </div>
 
 
 
 
-<script type="text/javascript" src="timer/app.js"></script>
+<script type="text/javascript" src="scripts/timer.js"></script>
 <script type="text/javascript" src="scripts/app.js"></script>
 </body>
 </html>

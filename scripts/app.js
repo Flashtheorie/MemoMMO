@@ -8,7 +8,10 @@ let nbCoups = 0;
 let nbPoints = 0;
 
 btnPlay.addEventListener('click', function() {
-    
+launchTimer();
+
+
+
     game.innerHTML = ''; // clear the game container
     table.innerHTML = ''; // clear the table container
     gameboard.style.display = 'block';
@@ -160,6 +163,42 @@ btnPlay.addEventListener('click', function() {
 
 
 
+
+// timer
+let zoneTimer = document.querySelector('#timer');
+
+let temps = 46;
+
+
+
+function launchTimer(){
+    setInterval(function(){
+        temps--;
+        zoneTimer.innerHTML = temps;
+    
+    
+    
+        if (temps == 0) {
+            alert('Vous avez perdu !');
+            document.location.href = "index.php";
+        }
+    
+        if (temps == 30) {
+            zoneTimer.style.fontSize = '4em';
+            zoneTimer.style.color = 'orange';
+        }
+
+    
+        if (temps == 10) {
+            // grow the letter back and forth
+            zoneTimer.style.fontSize = '5em';
+
+            zoneTimer.style.color = 'red';
+        }
+    }, 1000);
+}
+
+// fin timer
 
 
 
