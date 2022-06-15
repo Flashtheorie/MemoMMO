@@ -9,33 +9,53 @@
 </head>
 <body>
 
-<div id="game">
-
-<div id="title" class="noselect"><h1>MEMOMMO</h1></div>
+<div id="game" >
 <div id="secondTitle">The first RPG Memory Game </div>
-
-<div id="buttonPlay" align="center">
-   <button class="btn" id="play">
-      PLAY
-   </button>
+    <div id="title" class="noselect"><h1>MEMOMMO</h1></div>
+    
+    <div id="buttonPlay" align="center">
+    <button class="btn" id="play">
+ 
+  
+   PLAY
+  
+ 
+</button>
 
 </div>
+
+
+
+
+
 </div>
 
-<div id="gameboard">
+<div id="gameboard" align="center">
+
+
+
+
+
 
 <h1>0/100 xp</h1>
 <div id="xpbar"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table id="table"></table>
-
-
 <div id="timer"></div>
+
 </div>
-
-
-
-
-<script type="text/javascript" src="scripts/timer.js"></script>
 <script type="text/javascript" src="scripts/app.js"></script>
 </body>
 </html>

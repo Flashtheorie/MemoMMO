@@ -42,7 +42,7 @@ launchTimer();
 
     for (let i = 0; i < 4; i++) {
 
-        tr = document.createElement('tr');
+    tr = document.createElement('tr');
     tbody.append(tr);
 
     
