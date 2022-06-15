@@ -103,7 +103,7 @@ h1 {
 
   /* xp bar */
   #xpbar {
-    width: 100%;
+    width: 50%;
     height: 10px;
     border: 1px solid black;
     background-color: white;
