@@ -2,6 +2,10 @@
 # MEMOMMO
 
 MemoMMO est un RPG sous forme de Memory Game, en cours de développement.
+Projet imaginé suite à l'exercice de création d'un memory game en Javascript pour ma formation.
+
+
+
 
 
 ## Authors
