@@ -5,7 +5,7 @@ gameboard = document.querySelector('#gameboard');
 table = document.querySelector('#table')
 gameboard.style.display = 'none';
 let nbCoups = 0;
-
+let nbPoints = 0;
 
 btnPlay.addEventListener('click', function() {
     
@@ -102,7 +102,13 @@ btnPlay.addEventListener('click', function() {
                     if (choixParCoup[0] == choixParCoup[1]){
                        // Le joueur a trouvé une paire
                        // Select the divs which contains the same emoji as this one
+                        nbPoints++;
 
+                        console.log(nbPoints)
+
+                        if (nbPoints == 8) {
+                            alert('Vous avez gagné !');
+                        }
 
                       let divs = document.querySelectorAll('.emoji');
                       console.log(divs)
