@@ -9,6 +9,40 @@ let nbPoints = 0;
 btnPlay.addEventListener("click", function () {
   launchTimer();
 
+  // timer
+let zoneTimer = document.querySelector("#timer");
+
+let temps = 46;
+
+function launchTimer() {
+  let timer = setInterval(function () {
+    temps--;
+    zoneTimer.innerHTML = temps;
+
+    if (temps == 0) {
+      alert("Vous avez perdu !");
+      document.location.href = "index.php";
+    }
+
+    if (temps == 30) {
+      zoneTimer.style.fontSize = "4em";
+      zoneTimer.style.color = "orange";
+    }
+
+    if (temps == 10) {
+      // grow the letter back and forth
+      zoneTimer.style.fontSize = "5em";
+
+      zoneTimer.style.color = "red";
+    }
+  }, 1000);
+}
+
+// fin timer
+
+
+
+
   game.innerHTML = ""; // clear the game container
   table.innerHTML = ""; // clear the table container
   gameboard.style.display = "block";
@@ -82,22 +116,28 @@ btnPlay.addEventListener("click", function () {
 
       tile.children[0].style.display = "block";
       nbCoups++;
-      console.log(choixParCoup);
+     // console.log(choixParCoup);
       if (nbCoups == 2) {
+        // if you click on the same tile, prevent it
+       
+
         setTimeout(function () {
           if (choixParCoup[0] == choixParCoup[1]) {
             // Le joueur a trouvé une paire
             // Select the divs which contains the same emoji as this one
             nbPoints++;
 
-            console.log(nbPoints);
+           //console.log(nbPoints);
 
             if (nbPoints == 8) {
               alert("Vous avez gagné !");
+
+              clearInterval(timer);
+
             }
 
             let divs = document.querySelectorAll(".emoji");
-            console.log(divs);
+            //console.log(divs);
             divs.forEach(function (div) {
               if (div.innerHTML == choixParCoup[0]) {
                 div.parentElement.classList.add("found");
@@ -119,33 +159,3 @@ btnPlay.addEventListener("click", function () {
   });
 }); // Onclick sur play
 
-// timer
-let zoneTimer = document.querySelector("#timer");
-
-let temps = 46;
-
-function launchTimer() {
-  setInterval(function () {
-    temps--;
-    zoneTimer.innerHTML = temps;
-
-    if (temps == 0) {
-      alert("Vous avez perdu !");
-      document.location.href = "index.php";
-    }
-
-    if (temps == 30) {
-      zoneTimer.style.fontSize = "4em";
-      zoneTimer.style.color = "orange";
-    }
-
-    if (temps == 10) {
-      // grow the letter back and forth
-      zoneTimer.style.fontSize = "5em";
-
-      zoneTimer.style.color = "red";
-    }
-  }, 1000);
-}
-
-// fin timer
