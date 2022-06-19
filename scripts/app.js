@@ -67,7 +67,7 @@ btnPlay.addEventListener("click", function () {
         });
       }, 1000);
     }
-  }
+  } 
 
   tiles = document.querySelectorAll("th");
   //console.table(tiles)
